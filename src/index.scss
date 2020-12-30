@@ -1,0 +1,50 @@
+@import "./Styles/colors";
+@import "./Styles/teams";
+@import "./Styles/buttons";
+
+* {
+  margin: 0;
+  padding: 0;
+  text-transform: capitalize;
+  word-wrap: break-word;
+}
+
+:root {
+  color: $font-color;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+.team:hover {
+  cursor: pointer;
+  background-color: $highlight;
+}
+
+#root {
+  background: $background;
+  width: 100vw;
+  height: 100vh;
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.all {
+  box-shadow: 0 0 10px 2px $font-color, 0 0 10px 2px $font-color inset;
+  border: 2px solid $font-color;
+  border-radius: 10px;
+  box-sizing: border-box;
+  padding: 20px;
+  display: grid;
+  height: 100%;
+  gap: 1rem;
+  grid: 1fr 1fr / 35% 1fr;
+  > * {
+    background-color: $secondary-background;
+    box-shadow: 0 0 5px 1px $font-color, 0 0 5px 1px $font-color inset;
+  }
+}
+
+@media (max-width: 992px) {
+  :root {
+    font-size: 13px;
+  }
+}

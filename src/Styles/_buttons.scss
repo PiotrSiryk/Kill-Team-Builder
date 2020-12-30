@@ -1,0 +1,19 @@
+.trash-btn {
+  background-color: transparent;
+  cursor: pointer;
+  border: none;
+  box-sizing: border-box;
+  height: 100%;
+  font-size: 100%;
+  color: lighten($second-highlight, 20%);
+  outline: none;
+  svg {
+    height: 100%;
+    transition: 400ms;
+  }
+  svg:hover {
+    filter: drop-shadow(1px 1px 12px $font-color);
+    color: $font-color;
+    transition: 400ms;
+  }
+}
