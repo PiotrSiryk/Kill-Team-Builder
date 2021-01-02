@@ -1,0 +1,42 @@
+.teams,
+.members,
+.items {
+  nav {
+    width: 80%;
+    div {
+      margin: 0.3rem 0;
+      display: flex;
+      gap: 0.3rem;
+      label {
+        font-size: 1.2rem;
+        width: 40%;
+      }
+      input {
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px $font-color solid;
+        outline: none;
+        color: $font-color;
+        transition: 200ms;
+      }
+      input:hover {
+        box-shadow: 0 3px 4px -2px $font-color;
+        transition: 200ms;
+      }
+      input:focus {
+        box-shadow: 0 10px 6px -4px $font-color;
+        transition: 200ms;
+      }
+    }
+  }
+  header {
+    font-size: 1.4rem;
+    > * {
+      margin: 0.3rem 0;
+    }
+  }
+}
+.members > nav {
+  min-height: 130px;
+}

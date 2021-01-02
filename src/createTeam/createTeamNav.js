@@ -31,6 +31,7 @@ export default function CreateTeamNav() {
         <div>
           <label htmlFor="add-team-name">Name</label>
           <input
+            spellCheck="false"
             maxLength="25"
             type="text"
             id="add-team-name"
@@ -44,6 +45,7 @@ export default function CreateTeamNav() {
         <div>
           <label htmlFor="add-faction-name">Faction</label>
           <input
+            spellCheck="false"
             maxLength="15"
             type="text"
             id="add-faction-name"
@@ -55,7 +57,7 @@ export default function CreateTeamNav() {
           />
         </div>
         <div>
-          <button onClick={() => addTeam()} className="create-team-btn">
+          <button onClick={() => addTeam()} className="create-btn">
             Create
           </button>
         </div>

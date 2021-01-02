@@ -1,10 +1,29 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { TeamContext } from "../App";
 
 export default function AddTeamMember() {
-  const { active, teamList, setTeamList } = useContext(TeamContext);
+  const {
+    active,
+    teamList,
+    setTeamList,
+    summaryCost,
+    setSummaryCost,
+  } = useContext(TeamContext);
   const find = teamList.find((element) => element.id == active);
   const [current, setCurrent] = useState({ name: "", baseCost: 0, items: [] });
+
+  useEffect(() => {
+    let cost = 0;
+    if (find) {
+      const test = find.squad.forEach((el) => {
+        cost += Number(el.baseCost);
+        el.items.forEach((item) => {
+          cost += Number(item.baseCost);
+        });
+      });
+    }
+    setSummaryCost(cost);
+  }, [teamList, active]);
 
   const addMember = () => {
     setTeamList((prev) => {
@@ -29,6 +48,8 @@ export default function AddTeamMember() {
       <div>
         <label htmlFor="member-name">Name</label>
         <input
+          maxLength="20"
+          spellCheck="false"
           type="text"
           id="member-name"
           onChange={(event) =>
@@ -45,6 +66,7 @@ export default function AddTeamMember() {
       <div>
         <label htmlFor="member-cost">cost</label>
         <input
+          spellCheck="false"
           type="number"
           id="member-cost"
           max="100"
@@ -59,7 +81,9 @@ export default function AddTeamMember() {
           }
         />
       </div>
-      <button onClick={() => addMember()}>add member</button>
+      <button onClick={() => addMember()} className="create-btn">
+        add member
+      </button>
     </nav>
   );
 }

@@ -17,3 +17,24 @@
     transition: 400ms;
   }
 }
+
+.create-btn {
+  cursor: pointer;
+
+  font-size: 1.2rem;
+  background-color: $highlight;
+  margin: 0.8rem auto;
+  outline: none;
+  border: none;
+  color: $font-color;
+  box-shadow: 0 0 3px 1px $font-color, 0 0 3px 1px $font-color inset;
+  padding: 5px 10px;
+  transition: 200ms;
+}
+.create-btn:hover {
+  box-shadow: 0 0 5px 2px $font-color, 0 0 5px 2px $font-color inset;
+}
+.create-btn:active {
+  box-shadow: 2px 2px 5px 3px $font-color, 2px 2px 5px 3px $font-color inset;
+  transition: 200ms;
+}

@@ -1,4 +1,4 @@
-import React, { useState, createContext } from "react";
+import React, { useState, createContext, useEffect } from "react";
 import CreateTeamNav from "./createTeam/createTeamNav";
 import DisplayTeams from "./createTeam/displayTeams";
 import DisplaySquad from "./createTeam/displaySquad";
@@ -12,6 +12,19 @@ function App() {
   const [teamList, setTeamList] = useState([]);
   const [active, setActive] = useState("");
   const [activeMember, setActiveMember] = useState("");
+  const [summaryCost, setSummaryCost] = useState(0);
+
+  useEffect(() => {
+    const prevData = JSON.parse(localStorage.getItem("data"));
+    if (prevData) {
+      setTeamList(prevData);
+    }
+  }, []);
+
+  useEffect(() => {
+    const data = JSON.stringify(teamList);
+    localStorage.setItem("data", data);
+  }, [teamList]);
 
   return (
     <TeamContext.Provider
@@ -22,6 +35,8 @@ function App() {
         active,
         activeMember,
         setActiveMember,
+        summaryCost,
+        setSummaryCost,
       }}
     >
       <main className="all">
@@ -33,7 +48,7 @@ function App() {
           <AddTeamMember />
           <DisplaySquad />
         </div>
-        <div>
+        <div className="items">
           <AddItem />
           <DisplayMember />
         </div>

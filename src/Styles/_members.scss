@@ -1,0 +1,49 @@
+.members,
+.items {
+  display: grid;
+  grid: auto / 1fr 1fr;
+  padding: 0.8rem;
+
+  > div {
+    overflow: auto;
+    grid-row-start: 2;
+    grid-row-end: 5;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    display: grid;
+    gap: 0.3rem;
+    font-size: 1.1rem;
+    grid: repeat(auto-fill, 30px) / 1fr 1fr;
+    margin: 0 0 1rem 0;
+    > .member,
+    div {
+      border-radius: 2px;
+      border: $highlight solid 1px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      > * {
+        margin: 0 0.5rem;
+      }
+
+      /* Throw Away border */
+      border: $font-color 1px solid;
+
+      /* overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis; */
+    }
+    .member:hover {
+      background-color: $highlight;
+    }
+  }
+}
+
+.member {
+  cursor: pointer;
+  transition: 400ms;
+}
+.active-member {
+  box-shadow: 4px 4px 6px, 3px 3px 9px inset;
+  transition: 400ms;
+}

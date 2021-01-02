@@ -1,0 +1,24 @@
+:root {
+  text-shadow: 0px 0px 35px $font-color;
+}
+h1 {
+  text-shadow: 2px 2px 16px $font-color;
+}
+label {
+  text-shadow: 1px 1px 13px $font-color;
+}
+input {
+  text-shadow: 1px 1px 15px $font-color;
+}
+.create-btn {
+  text-shadow: 0px 0px 2px $font-color;
+}
+.create-btn:hover {
+  text-shadow: 1px 1px 10px $font-color;
+}
+.active-team {
+  text-shadow: 1px 1px 8px $font-color;
+}
+.active-member {
+  text-shadow: 1px 1px 5px $font-color;
+}

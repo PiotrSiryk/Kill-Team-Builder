@@ -14,6 +14,11 @@ export default function DisplayMember() {
     if (member) {
       const { name, baseCost, items, id } = member;
 
+      const total = items.reduce(
+        (total, element) => total + Number(element.baseCost),
+        Number(baseCost)
+      );
+
       const removeItem = (id) => {
         setTeamList((prev) => {
           const mapped = prev.map((element) => {
@@ -35,17 +40,21 @@ export default function DisplayMember() {
           return mapped;
         });
       };
+
       return (
-        <div>
-          <h4>{id}</h4>
-          <h4>{name}</h4>
-          <h4>{baseCost}</h4>
+        <>
+          <header>
+            <h4>Name: {name}</h4>
+            <h4>Base Cost : {baseCost}</h4>
+            <h4>Total Cost : {total}</h4>
+          </header>
+
           <div>
             {items.map((el, index) => {
               return (
                 <div key={Math.random()}>
-                  <h5>{el.name}</h5>
-                  <h5>{el.baseCost}</h5>
+                  <h4>{el.name}</h4>
+                  <h4>Cost: {el.baseCost}</h4>
                   <button
                     onClick={() => removeItem(index)}
                     className="trash-btn"
@@ -56,7 +65,7 @@ export default function DisplayMember() {
               );
             })}
           </div>
-        </div>
+        </>
       );
     }
   }

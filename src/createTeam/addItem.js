@@ -5,7 +5,7 @@ export default function AddItem() {
   const { active, activeMember, teamList, setTeamList } = useContext(
     TeamContext
   );
-  const [current, setCurrent] = useState({ name: "", cost: 0 });
+  const [current, setCurrent] = useState({ name: "", baseCost: 0 });
 
   const team = teamList.find((element) => element.id == active);
   let member;
@@ -39,6 +39,7 @@ export default function AddItem() {
       <div>
         <label htmlFor="item-name">Item</label>
         <input
+          spellCheck="false"
           type="text"
           id="item-name"
           onChange={(event) =>
@@ -54,6 +55,7 @@ export default function AddItem() {
       <div>
         <label htmlFor="item-cost">cost</label>
         <input
+          spellCheck="false"
           type="number"
           id="item-cost"
           max="100"
@@ -67,7 +69,9 @@ export default function AddItem() {
           }
         />
       </div>
-      <button onClick={() => addItem()}>add item</button>
+      <button onClick={() => addItem()} className="create-btn">
+        add item
+      </button>
     </nav>
   );
 }
