@@ -14,6 +14,11 @@ export default function AddItem() {
   }
 
   const addItem = () => {
+    if (current.name === "" || current.baseCost < 0) {
+      alert("Name and Cost cannot be empty or a negative value");
+      return "";
+    }
+
     setTeamList((prev) => {
       const mapped = prev.map((element) => {
         if (element === team) {

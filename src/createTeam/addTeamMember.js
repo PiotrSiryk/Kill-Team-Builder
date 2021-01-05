@@ -26,6 +26,11 @@ export default function AddTeamMember() {
   }, [teamList, active]);
 
   const addMember = () => {
+    if (current.name === "" || current.baseCost < 0) {
+      alert("Name and Cost cannot be empty or a negative value");
+      return "";
+    }
+
     setTeamList((prev) => {
       const mapped = prev.map((el) =>
         el == find ? { ...el, squad: [...el.squad, current] } : el
