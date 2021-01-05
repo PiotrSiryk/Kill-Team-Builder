@@ -11,6 +11,10 @@ export default function CreateTeamNav() {
   const { teamList, setTeamList } = useContext(TeamContext);
 
   const addTeam = () => {
+    if (current.name === "") {
+      alert("Team name is required");
+      return;
+    }
     setTeamList((prev) => [...prev, current]);
     setTeamList((prev) => {
       const mapped = prev.map((element, index) => {
